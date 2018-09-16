@@ -1,0 +1,9 @@
+before_install:
+  - sudo apt-get -y update
+  - sudo apt-get -y upgrade
+  - sudo apt-get -y install nodejs npm
+
+install:
+  - npm update --prefix api_scraper/
+
+script: npm update --prefix api_scraper/
