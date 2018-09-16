@@ -7,7 +7,10 @@ const minimist = require('minimist');
 
 const args = minimist(process.argv.slice(2));
 
-const schema_dir = args['schema_dir'];
+const schema_dir = (args['schema_dir']) ? `${process.cwd()}/${args['schema_dir']}` : process.cwd();
+
+test = process.cwd();
+console.log(`test: ${test}`);
 
 function cacheGetOrAdd(url, cb) {
   const cacheKey = url.replace(/[^a-z0-9]/gi, '_').toLowerCase();
