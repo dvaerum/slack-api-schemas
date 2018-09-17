@@ -1,9 +1,23 @@
+#dist: "travis_lts"
+
 before_install:
   - sudo apt-get -y update
-  - sudo apt-get -y upgrade
-  - sudo apt-get -y install nodejs npm
+  - sudo apt-get install -y nodejs npm
 
 install:
   - npm update --prefix api_scraper/
 
-script: npm update --prefix api_scraper/
+script: node api_scraper/index.js
+
+after_success:
+  - .travis/push.sh
+
+#deploy:
+  #provider: pages
+  #skip-cleanup: true
+  #github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  #keep-history: true
+  #target-branch: CI
+  #local-dir: "{objects,web}/"
+  #on:
+    #branch: CI
