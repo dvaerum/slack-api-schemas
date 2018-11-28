@@ -492,9 +492,6 @@
         "channel": {
           "type": "string"
         },
-        "subtype": {
-          "type": "string"
-        },
         "event_ts": {
           "type": "string"
         },
